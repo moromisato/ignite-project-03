@@ -1,6 +1,6 @@
-import { stripe } from './../../../services/stripe';
+import { stripe } from '../../../services/stripe';
+import { fauna } from '../../../services/fauna';
 import { query as q } from 'faunadb';
-import { fauna } from './../../../services/fauna';
 
 export async function saveSubscription(
   subscriptionId: string,
@@ -8,7 +8,6 @@ export async function saveSubscription(
   createAction = false,
 ) {
 
-  console.log(subscriptionId, customerId)
   const userRef = await fauna.query(
     q.Select(
       "ref",
